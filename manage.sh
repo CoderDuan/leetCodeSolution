@@ -22,6 +22,16 @@ elif [[ $1 == "create" ]]; then
     else
         printHelp
     fi
+elif [[ $1 == "hiho" ]]; then
+    var=$(echo $2 | bc 2>/dev/null)
+    if [[ "$var" == $2 ]]; then
+        newdir="hiho_$2"
+        echo $2 "$newdir"
+        mkdir -p "$newdir"
+        cp template/* $newdir/.
+    else
+        printHelp
+    fi
 elif [[ $1 == "delete" ]]; then
     var=$(echo $2 | bc 2>/dev/null)
     if [[ "$var" == $2 ]]; then
